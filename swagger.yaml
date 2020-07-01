@@ -1,0 +1,1669 @@
+basePath: /api
+definitions:
+  APIGetPlayerInfoParams:
+    description: APIGetPlayerInfoParams get player params
+    properties:
+      ID:
+        format: uint64
+        type: integer
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  APIMarketResultResponse:
+    properties:
+      group:
+        items:
+          type: string
+        type: array
+        x-go-name: Group
+      id:
+        format: uint64
+        type: integer
+        x-go-name: Id
+      mappings:
+        items:
+          $ref: '#/definitions/Mapping'
+        type: array
+        x-go-name: Mappings
+      name:
+        type: string
+        x-go-name: Name
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  APIMatchResponse:
+    description: APIMatchResponse 查詢Match回傳格式
+    properties:
+      awayCompetitor:
+        $ref: '#/definitions/Competitor'
+      bookingStatus:
+        type: string
+        x-go-name: BookingStatus
+      competitors:
+        items:
+          $ref: '#/definitions/Competitor'
+        type: array
+        x-go-name: Competitors
+      conditions:
+        type: object
+        x-go-name: Conditions
+      eventStatus:
+        type: string
+        x-go-name: EventStatus
+      eventTimeline:
+        $ref: '#/definitions/EventTimeline'
+      eventTimelineIfPresent:
+        $ref: '#/definitions/IfPresent'
+      fixture:
+        $ref: '#/definitions/Fixture'
+      homeCompetitor:
+        $ref: '#/definitions/Competitor'
+      id:
+        $ref: '#/definitions/RadarId'
+      name:
+        type: string
+        x-go-name: Name
+      scheduleTime:
+        format: int64
+        type: integer
+        x-go-name: ScheduledTime
+      sportId:
+        $ref: '#/definitions/RadarId'
+      startTimeTbd:
+        type: boolean
+        x-go-name: StartTimeTbd
+      status:
+        $ref: '#/definitions/MatchStatus'
+      statusIfPresent:
+        $ref: '#/definitions/IfPresent'
+      tournament:
+        $ref: '#/definitions/RadarId'
+      tournamentRound:
+        $ref: '#/definitions/TournamentRound'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  APIMatchResultResponse:
+    properties:
+      bookingStatus:
+        type: string
+        x-go-name: BookingStatus
+      competitors:
+        items:
+          $ref: '#/definitions/Competitor'
+        type: array
+        x-go-name: Competitors
+      eventStatus:
+        type: string
+        x-go-name: EventStatus
+      eventTimeline:
+        $ref: '#/definitions/EventTimeline'
+      eventTimelineIfPresent:
+        $ref: '#/definitions/IfPresent'
+      fixture:
+        $ref: '#/definitions/Fixture'
+      homeCompetitor:
+        $ref: '#/definitions/Competitor'
+      id:
+        $ref: '#/definitions/RadarId'
+      name:
+        type: string
+        x-go-name: Name
+      scheduleTime:
+        format: int64
+        type: integer
+        x-go-name: ScheduledTime
+      sportId:
+        $ref: '#/definitions/RadarId'
+      startTimeTbd:
+        type: boolean
+        x-go-name: StartTimeTbd
+      status:
+        $ref: '#/definitions/MatchStatus'
+      statusIfPresent:
+        $ref: '#/definitions/IfPresent'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  APIPlayerAccountResponse:
+    description: APIPlayerAccountResponse 查詢使用者帳戶資訊回傳格式
+    properties:
+      Balance:
+        format: double
+        type: number
+      ID:
+        format: uint64
+        type: integer
+      Nickname:
+        type: string
+      Username:
+        type: string
+      WalletKind:
+        $ref: '#/definitions/WalletKind'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  APIPlayerOrderResponse:
+    description: APIPlayerOrderResponse 查詢 Player 注單回傳格式
+    properties:
+      AccountTime:
+        format: date-time
+        type: string
+      Amount:
+        format: double
+        type: number
+      CurrencyID:
+        $ref: '#/definitions/Type'
+      ErrorCode:
+        format: uint64
+        type: integer
+      ID:
+        format: uint64
+        type: integer
+      Items:
+        items:
+          $ref: '#/definitions/PlayerOrderItemResponse'
+        type: array
+      OddsType:
+        $ref: '#/definitions/OddsType'
+      OrderAt:
+        format: date-time
+        type: string
+      PL:
+        format: double
+        type: number
+      Prize:
+        format: double
+        type: number
+      ResultFlag:
+        $ref: '#/definitions/ResultCode'
+      Rolling:
+        format: double
+        type: number
+      SerialNumber:
+        type: string
+      Settle:
+        type: boolean
+      Status:
+        $ref: '#/definitions/OrderStatus'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  APIPlayerUserResponse:
+    description: APIPlayerUserResponse 查詢使用者資訊回傳格式
+    properties:
+      Balance:
+        format: double
+        type: number
+      ID:
+        format: uint64
+        type: integer
+      Nickname:
+        type: string
+      Username:
+        type: string
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  APISportResponse:
+    properties:
+      group:
+        type: string
+        x-go-name: Group
+      id:
+        format: uint64
+        type: integer
+        x-go-name: Id
+      prefix:
+        type: string
+        x-go-name: Prefix
+      type:
+        type: string
+        x-go-name: Type
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  APITournamentResponse:
+    properties:
+      tournament:
+        $ref: '#/definitions/RadarId'
+      tournamentRound:
+        $ref: '#/definitions/TournamentRound'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  Competitor:
+    properties:
+      abbreviations:
+        $ref: '#/definitions/LangInfo'
+      countries:
+        type: object
+        x-go-name: Countries
+      id:
+        $ref: '#/definitions/RadarId'
+      name:
+        $ref: '#/definitions/LangInfo'
+      qualifier:
+        type: string
+        x-go-name: Qualifier
+      references:
+        properties:
+          betradarId:
+            format: int64
+            type: integer
+            x-go-name: BetRadarId
+          references:
+            properties:
+              betradar:
+                type: string
+                x-go-name: BetRadar
+            type: object
+            x-go-name: References
+        type: object
+        x-go-name: References
+      virutal:
+        type: boolean
+        x-go-name: Virtual
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  Decimal:
+    description: number = value * 10 ^ exp
+    title: Decimal represents a fixed-point decimal. It is immutable.
+    type: object
+    x-go-package: github.com/shopspring/decimal
+  Description:
+    properties:
+      description:
+        type: string
+        x-go-name: Description
+      id:
+        format: int64
+        type: integer
+        x-go-name: Id
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  EventTimeline:
+    properties:
+      timelineEvents:
+        items:
+          $ref: '#/definitions/TimelineEvent'
+        type: array
+        x-go-name: EventTimeline
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  Fixture:
+    properties:
+      betradarId:
+        format: int64
+        type: integer
+        x-go-name: BetRadarId
+      coverageInfo:
+        properties:
+          includes:
+            items:
+              type: string
+            type: array
+            x-go-name: Includes
+          level:
+            type: string
+            x-go-name: Level
+          live:
+            type: boolean
+            x-go-name: Live
+        type: object
+        x-go-name: CoverageInfo
+      extraInfo:
+        properties:
+          coverage_source:
+            type: string
+            x-go-name: CoverageSource
+          extended_live_markets_offered:
+            type: string
+            x-go-name: ExtendedLiveMarksOffered
+          neutral_ground:
+            type: string
+            x-go-name: NaturalGround
+          period_length:
+            type: string
+            x-go-name: PeriodLength
+        type: object
+        x-go-name: ExtraInfo
+      nextLiveTime:
+        format: int64
+        type: integer
+        x-go-name: NextLiveTime
+      producerInfo:
+        properties:
+          autoTraded:
+            type: boolean
+            x-go-name: AutoTraded
+          inHostedStatistics:
+            type: boolean
+            x-go-name: InHostedStatistics
+          inLiveCenterSoccer:
+            type: boolean
+            x-go-name: InLiveCenterSoccer
+          inLiveScore:
+            type: boolean
+            x-go-name: InLiveScore
+        type: object
+        x-go-name: ProducerInfo
+      references:
+        properties:
+          betradarCtrl:
+            type: string
+            x-go-name: BetRadarCtrl
+        type: object
+        x-go-name: References
+      startTime:
+        format: int64
+        type: integer
+        x-go-name: StartTime
+      startTimeConfirmed:
+        type: boolean
+        x-go-name: StartTimeConfirmed
+      startTimeTbd:
+        type: boolean
+        x-go-name: StartTimeTbd
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  GetWalletHistoryParams:
+    description: GetWalletHistoryParams 查詢 thirdparty 帳戶紀錄參數
+    properties:
+      PlayerID:
+        format: uint64
+        type: integer
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models
+  IfPresent:
+    properties:
+      present:
+        type: boolean
+        x-go-name: Present
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  LangInfo:
+    properties:
+      en:
+        type: string
+        x-go-name: EN
+      es:
+        type: string
+        x-go-name: ES
+      ja:
+        type: string
+        x-go-name: JA
+      ld:
+        type: string
+        x-go-name: LD
+      ms:
+        type: string
+        x-go-name: MS
+      th:
+        type: string
+        x-go-name: TH
+      vi:
+        type: string
+        x-go-name: VI
+      zh:
+        type: string
+        x-go-name: ZH
+      zht:
+        type: string
+        x-go-name: ZHT
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  Mapping:
+    properties:
+      marketId:
+        type: string
+        x-go-name: MarketId
+      marketSubTypeId:
+        format: uint64
+        type: integer
+        x-go-name: MarketSubTypeId
+      marketTypeId:
+        format: uint64
+        type: integer
+        x-go-name: MarketTypeId
+      outcomeMappings:
+        additionalProperties:
+          $ref: '#/definitions/OutcomeId'
+        type: object
+        x-go-name: OutcomeMappings
+      producerId:
+        format: uint64
+        type: integer
+        x-go-name: ProducerId
+      producerIds:
+        items:
+          format: uint64
+          type: integer
+        type: array
+        x-go-name: ProducerIds
+      sovTemplate:
+        type: string
+        x-go-name: SovTemplate
+      sportId:
+        $ref: '#/definitions/RadarId'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  Match:
+    properties:
+      AwayCompetitorId:
+        format: uint64
+        type: integer
+      BookingStatus:
+        type: string
+      EventStatus:
+        type: string
+      HomeCompetitorId:
+        format: uint64
+        type: integer
+      MatchId:
+        format: uint64
+        type: integer
+      Name:
+        type: string
+      RawData:
+        type: object
+      ScheduleTime:
+        format: int64
+        type: integer
+      SportId:
+        format: uint64
+        type: integer
+      StartTime:
+        format: date-time
+        type: string
+      StatusID:
+        format: int64
+        type: integer
+      StatusIFPresent:
+        type: boolean
+      TournamentId:
+        format: uint64
+        type: integer
+      TournamentRoundLastNumber:
+        format: uint64
+        type: integer
+      TournamentRoundType:
+        type: string
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models/entities
+  MatchStatus:
+    properties:
+      awayScore:
+        format: int64
+        type: integer
+        x-go-name: AwayScore
+      homeScore:
+        format: int64
+        type: integer
+        x-go-name: HomeScore
+      matchStatus:
+        $ref: '#/definitions/Description'
+      matchStatusId:
+        format: int64
+        type: integer
+        x-go-name: MatchStatusId
+      periodScores:
+        items:
+          $ref: '#/definitions/Score'
+        type: array
+        x-go-name: PeriodScores
+      properties:
+        type: object
+        x-go-name: Properties
+      reportingStatus:
+        type: string
+        x-go-name: ReportingStatus
+      statistics:
+        properties:
+          periodStatistics:
+            items:
+              $ref: '#/definitions/Statistics'
+            type: array
+            x-go-name: PeriodStatistics
+          totalStastics:
+            items:
+              $ref: '#/definitions/StatisticsContent'
+            type: array
+            x-go-name: TotalStatistics
+        type: object
+        x-go-name: Statistics
+      status:
+        type: string
+        x-go-name: Status
+      winnerId:
+        $ref: '#/definitions/RadarId'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  OddsChangeMessage:
+    properties:
+      changeReason:
+        type: string
+        x-go-name: ChangeReason
+      event:
+        $ref: '#/definitions/RadarEvent'
+      markets:
+        items:
+          $ref: '#/definitions/OddsMarket'
+        type: array
+        x-go-name: Markets
+      timestapms:
+        $ref: '#/definitions/TimeStamps'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  OddsMarket:
+    properties:
+      additionalMarketInfo:
+        type: object
+        x-go-name: AdditionalMarketInfo
+      favorite:
+        type: boolean
+        x-go-name: Favorite
+      id:
+        format: uint64
+        type: integer
+        x-go-name: Id
+      marketDefinition:
+        properties:
+          groups:
+            items:
+              type: string
+            type: array
+            x-go-name: Groups
+          nameTemplate:
+            type: string
+            x-go-name: NameTemplate
+        type: object
+        x-go-name: MarketDefinition
+      name:
+        type: string
+        x-go-name: Name
+      outcomeOdds:
+        items:
+          $ref: '#/definitions/OutcomeOdds'
+        type: array
+        x-go-name: OutcomeOdds
+      specifier:
+        properties:
+          mapnr:
+            type: string
+            x-go-name: Mapnr
+        type: object
+        x-go-name: Specifiers
+      status:
+        type: string
+        x-go-name: Status
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  OddsType:
+    description: OddsType 賠率種類
+    format: uint8
+    type: integer
+    x-go-package: git.b5k.io/fsbs/go-esp/shared/types
+  OddsUpdateSubMsg:
+    description: SubMsg 訂閱資訊
+    properties:
+      Indexes:
+        items:
+          $ref: '#/definitions/SubIndex'
+        type: array
+    type: object
+    x-go-name: SubMsg
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  Order:
+    description: |-
+      Order 注單資料
+      這邊是一筆注單的資料
+      如果是串關的的話會有多筆 OrderItem
+      每筆 OrderItem 對應一組賠率
+    properties:
+      Amount:
+        $ref: '#/definitions/Decimal'
+      CreatedAt:
+        format: date-time
+        type: string
+      DeletedAt:
+        format: date-time
+        type: string
+      ErrorCode:
+        format: uint64
+        type: integer
+      ID:
+        format: uint64
+        type: integer
+      IP:
+        type: string
+      Items:
+        items:
+          $ref: '#/definitions/OrderItem'
+        type: array
+      PL:
+        $ref: '#/definitions/Decimal'
+      Player:
+        $ref: '#/definitions/Player'
+      PlayerID:
+        format: uint64
+        type: integer
+      Remark:
+        type: string
+      SerialNumber:
+        type: string
+      Status:
+        $ref: '#/definitions/OrderStatus'
+      TypeFlag:
+        $ref: '#/definitions/OrderType'
+      UpdatedAt:
+        format: date-time
+        type: string
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models/entities
+  OrderItem:
+    description: OrderItem 注單係項，在串關的狀況下會有多筆
+    properties:
+      CreatedAt:
+        format: date-time
+        type: string
+      DeletedAt:
+        format: date-time
+        type: string
+      ID:
+        format: uint64
+        type: integer
+      OrderID:
+        format: uint64
+        type: integer
+      Remark:
+        type: string
+      ResultCode:
+        $ref: '#/definitions/ResultCode'
+      UpdatedAt:
+        format: date-time
+        type: string
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models/entities
+  OrderStatus:
+    description: OrderStatus Order 的狀態
+    format: uint8
+    type: integer
+    x-go-package: git.b5k.io/fsbs/go-esp/shared/types
+  OrderType:
+    description: OrderType 注單種類
+    format: uint8
+    type: integer
+    x-go-package: git.b5k.io/fsbs/go-esp/shared/types
+  OutcomeId:
+    properties:
+      outcomeId:
+        type: string
+        x-go-name: OutcomeId
+      producerOutcomeId:
+        type: string
+        x-go-name: ProducerOutcomeId
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  OutcomeOdds:
+    properties:
+      active:
+        type: boolean
+        x-go-name: Active
+      id:
+        type: string
+        x-go-name: Id
+      name:
+        type: string
+        x-go-name: Name
+      odds:
+        format: float
+        type: number
+        x-go-name: Odds
+      outcomeDefinition:
+        properties:
+          nameTemplate:
+            type: string
+            x-go-name: NameTemplate
+        type: object
+        x-go-name: OutcomeDefinition
+      playerOutcome:
+        type: boolean
+        x-go-name: PlayerOutcome
+      probability:
+        format: float
+        type: number
+        x-go-name: Probability
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  Pagination:
+    description: |-
+      Pagination pager for repository pager
+      Page 預設0
+      Per 預設0,當大於0再作分頁功能,否則等同於空查詢
+      NeedCount 預設false,部分共用的datastore可用此參數控制是否需總計,以節省效能
+    properties:
+      NeedCount:
+        type: boolean
+      Page:
+        format: uint64
+        type: integer
+      Per:
+        format: uint64
+        type: integer
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models
+  Player:
+    description: Player 玩家
+    properties:
+      CreatedAt:
+        format: date-time
+        type: string
+      DeletedAt:
+        format: date-time
+        type: string
+      General:
+        $ref: '#/definitions/UserGeneral'
+      ID:
+        format: uint64
+        type: integer
+      Nickname:
+        type: string
+      Orders:
+        items:
+          $ref: '#/definitions/Order'
+        type: array
+      UpdatedAt:
+        format: date-time
+        type: string
+      Username:
+        type: string
+      WalletKind:
+        $ref: '#/definitions/WalletKind'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models/entities
+  PlayerDTO:
+    description: PlayerDTO 回傳的簡略版本
+    properties:
+      AccessToken:
+        type: string
+      FirstName:
+        type: string
+      ID:
+        format: uint64
+        type: integer
+      LastName:
+        type: string
+      Profile:
+        $ref: '#/definitions/PlayerUserProfileDTO'
+      SignInCount:
+        format: int64
+        type: integer
+      Tier:
+        format: uint64
+        type: integer
+      Username:
+        type: string
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models
+  PlayerOrderItemResponse:
+    description: PlayerOrderItemResponse 回傳用 Item 資料
+    properties:
+      ID:
+        format: uint64
+        type: integer
+      ResultCode:
+        $ref: '#/definitions/ResultCode'
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models
+  PlayerUserProfileDTO:
+    description: PlayerUserProfileDTO 回傳的簡略版本
+    properties:
+      Nickname:
+        type: string
+      Note:
+        type: string
+      OnceMinLimit:
+        format: uint16
+        type: integer
+      Parlay:
+        format: int64
+        type: integer
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models
+  RadarEvent:
+    properties:
+      id:
+        $ref: '#/definitions/RadarId'
+      name:
+        type: string
+        x-go-name: Name
+      scheduledTime:
+        format: uint64
+        type: integer
+        x-go-name: ScheduledTime
+      sportId:
+        $ref: '#/definitions/RadarId'
+      startTimeTbd:
+        type: boolean
+        x-go-name: StartTimeTbd
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  RadarId:
+    properties:
+      group:
+        type: string
+        x-go-name: Group
+      id:
+        format: uint64
+        type: integer
+        x-go-name: Id
+      prefix:
+        type: string
+        x-go-name: Prefix
+      type:
+        type: string
+        x-go-name: Type
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  ResultCode:
+    description: ResultCode 注單輸贏代碼
+    format: uint8
+    type: integer
+    x-go-package: git.b5k.io/fsbs/go-esp/shared/types
+  Score:
+    properties:
+      MatchStatusCode:
+        format: int64
+        type: integer
+      awayScore:
+        format: int64
+        type: integer
+        x-go-name: AwayScore
+      homeScore:
+        format: int64
+        type: integer
+        x-go-name: HomeScore
+      periodDescription:
+        $ref: '#/definitions/Description'
+      periodNumber:
+        format: int64
+        type: integer
+        x-go-name: PeriodNumber
+      periodType:
+        type: string
+        x-go-name: PeriodType
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  Statistics:
+    properties:
+      periodName:
+        type: string
+        x-go-name: PeriodName
+      teamStatistics:
+        items:
+          $ref: '#/definitions/StatisticsContent'
+        type: array
+        x-go-name: TeamStatistics
+      teamStatisticsDTOS:
+        items:
+          $ref: '#/definitions/StatisticsContent'
+        type: array
+        x-go-name: TeamStatisticDTOS
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  StatisticsContent:
+    properties:
+      CornerKicks:
+        format: int64
+        type: integer
+      cards:
+        format: int64
+        type: integer
+        x-go-name: Carts
+      homeAway:
+        type: string
+        x-go-name: HomeAway
+      name:
+        type: string
+        x-go-name: Name
+      yellCards:
+        format: int64
+        type: integer
+        x-go-name: YellowCards
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  SubIndex:
+    description: SubIndex 用於篩選的索引條件
+    properties:
+      MatchID:
+        description: 篩選的賽事編號
+        format: uint64
+        type: integer
+      OfferTypeIDs:
+        description: 篩選的玩法，如果給 0 則訂閱該賽事所有玩法
+        items:
+          format: uint64
+          type: integer
+        type: array
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  TimeStamps:
+    properties:
+      created:
+        format: uint64
+        type: integer
+        x-go-name: Created
+      dispatched:
+        format: uint64
+        type: integer
+        x-go-name: Dispatched
+      received:
+        format: uint64
+        type: integer
+        x-go-name: Received
+      sent:
+        format: uint64
+        type: integer
+        x-go-name: Sent
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  TimelineEvent:
+    properties:
+      awayScore:
+        format: float
+        type: number
+        x-go-name: AwayScore
+      homeScore:
+        format: float
+        type: number
+        x-go-name: HomeScore
+      id:
+        format: uint64
+        type: integer
+        x-go-name: Id
+      matchStatusCode:
+        format: uint16
+        type: integer
+        x-go-name: MatchStatusCode
+      period:
+        type: string
+        x-go-name: Period
+      periodName:
+        type: string
+        x-go-name: PeriodName
+      time:
+        format: uint64
+        type: integer
+        x-go-name: Time
+      type:
+        type: string
+        x-go-name: Type
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  TournamentRound:
+    properties:
+      betradarId:
+        format: int64
+        type: integer
+        x-go-name: BetRaderId
+      names:
+        $ref: '#/definitions/LangInfo'
+      number:
+        format: uint64
+        type: integer
+        x-go-name: Number
+      type:
+        type: string
+        x-go-name: Type
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/viewmodels
+  Type:
+    description: Type 幣別
+    format: uint64
+    type: integer
+    x-go-package: git.b5k.io/fsbs/go-esp/shared/types/currency
+  UserGeneral:
+    description: UserGeneral user共用資料
+    properties:
+      AccessToken:
+        type: string
+      Available:
+        type: boolean
+      CreatedAt:
+        format: date-time
+        type: string
+      DeletedAt:
+        format: date-time
+        type: string
+      ID:
+        format: uint64
+        type: integer
+      LastSignInAt:
+        format: date-time
+        type: string
+      LastSignInIP:
+        type: string
+      OwnerID:
+        format: uint64
+        type: integer
+      OwnerType:
+        type: string
+      SignInCount:
+        format: int64
+        type: integer
+      UpdatedAt:
+        format: date-time
+        type: string
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models/entities
+  UserLoginResult:
+    description: UserLoginResult 使用者登入回傳
+    properties:
+      AccessToken:
+        type: string
+    type: object
+    x-go-package: git.b5k.io/fsbs/go-esp/models
+  WalletKind:
+    description: WalletKind wallet kind
+    format: uint64
+    type: integer
+    x-go-package: git.b5k.io/fsbs/go-esp/shared/types
+host: 34.80.228.89
+info:
+  description: This is ESP sport betting system
+  title: ESP api server
+  version: "0.1"
+paths:
+  /general/login:
+    post:
+      description: 系統登入
+      operationId: Login
+      parameters:
+      - description: 使用者名稱
+        in: query
+        name: Username
+        required: true
+        type: string
+      - description: 密碼
+        in: query
+        name: Password
+        required: true
+        type: string
+      responses:
+        "200":
+          description: 成功訊息
+      summary: 使用者登入API
+      tags:
+      - general
+  /oddsChange:
+    get:
+      description: |-
+        回傳即時賽事資訊, 使用 websocket, e.g.
+
+        javascript：
+
+        var ws = new WebSocket('ws://34.80.228.89:18086/oddsChange')
+
+        ws.onopen = function (evt) {
+
+        console.log('Connection open ...')
+
+        }
+
+        ws.onmessage = function (evt) {
+
+        console.log('Received Message:')
+
+        console.log(evt.data)
+
+        }
+
+        ws.onclose = function (evt) {
+
+        console.log('Connection closed.')
+
+        }
+      operationId: 即時賽事
+      responses:
+        "200":
+          description: 賽事資料
+          schema:
+            $ref: '#/definitions/OddsChangeResponse'
+            type: object
+      security:
+      - Bearer: []
+      summary: 取得即時賽事資料
+      tags:
+      - websocket
+  /player/info:
+    get:
+      description: 回傳目前登入使用者基本資訊（姓名、暱稱、額度等）
+      operationId: Info
+      responses:
+        "200":
+          description: 會員資料
+          schema:
+            $ref: '#/definitions/APIPlayerUserResponse'
+            type: object
+      security:
+      - Bearer: []
+      summary: 取得目前登入使用者資訊API
+      tags:
+      - 玩家
+  /player/logout:
+    post:
+      description: 將呼叫 API user 的 token 清空
+      operationId: Logout
+      responses:
+        "200":
+          description: 登出成功
+      security:
+      - Bearer: []
+      summary: 使用者登出
+      tags:
+      - 玩家
+  /player/order/purchase:
+    post:
+      description: |-
+        格式及流程規劃中
+        「參數錯誤時」：會收到 Bad Request (400)。
+        「成功送出時」：會收到 產生的注單結構，且統一回前端delay。
+        「系統處理」：在延遲時間後，進行相關檢查條件，檢查結果再由WebSocket通知。
+
+        各項參數參考：
+        + RateMode
+        1 - Any
+        2 - Best
+        3 - Normal
+        + OddsType
+        1 - 香港
+        2 - 歐洲
+        3 - 印尼
+        4 - 馬來西亞
+        + Target
+        1 - Home
+        2 - Away
+        3 - Draw
+
+        介面設計中
+      operationId: PurchaseOrder
+      responses:
+        "200":
+          description: 成功收到參數
+        "400":
+          description: 參數錯誤
+        "500":
+          description: 伺服器出錯
+      security:
+      - Bearer: []
+      summary: 下注 (WIP)
+      tags:
+      - 玩家
+  /player/orders:
+    get:
+      description: 給予會員ID來查詢該會員所擁有的所有注單資料
+      operationId: playerTotalOrders
+      parameters:
+      - description: 欲查詢之注單ID
+        in: query
+        name: ID
+        type: integer
+      - description: 欲查詢之玩家ID
+        in: query
+        name: UserID
+        type: integer
+      - description: 查詢起始日期
+        in: query
+        name: Start
+        type: string
+      - description: 查詢結尾日期
+        in: query
+        name: End
+        type: string
+      - description: 分頁頁數，從0開始
+        in: query
+        name: Page
+        type: integer
+      - description: 每頁資料數
+        in: query
+        name: Per
+        type: integer
+      responses:
+        "200":
+          description: 會員注單資料
+          schema:
+            items:
+              $ref: '#/definitions/APIPlayerOrderResponse'
+              type: object
+            type: array
+      security:
+      - Bearer: []
+      summary: 取得會員所有注單資訊
+      tags:
+      - 玩家
+  /sport/list:
+    post:
+      description: 回傳sports
+      operationId: 列出sports
+      responses:
+        "200":
+          description: 賽事資料
+          schema:
+            items:
+              items:
+                $ref: '#/definitions/APISportResponse'
+                type: object
+              type: array
+            type: array
+      security:
+      - Bearer: []
+      summary: 列出 sports
+      tags:
+      - 賽事資訊
+  /sport/market:
+    post:
+      description: 回傳市場資訊
+      operationId: 市場資訊
+      parameters:
+      - description: Market Id
+        format: integer
+        in: query
+        name: MarketId
+        required: true
+      responses:
+        "200":
+          description: 市場資料
+          schema:
+            $ref: '#/definitions/APIMarketResultResponse'
+            type: object
+      security:
+      - Bearer: []
+      summary: MarketId取得市場資訊
+      tags:
+      - 賽事資訊
+  /sport/markets:
+    post:
+      description: 回傳市場資訊
+      operationId: 市場資訊
+      responses:
+        "200":
+          description: 市場資料
+          schema:
+            Items:
+              $ref: '#/definitions/APIMarketResultResponse'
+              type: object
+            items:
+              $ref: '#/definitions/APIMarketResultResponse'
+              type: object
+            type: array
+      security:
+      - Bearer: []
+      summary: 取得所有市場資訊
+      tags:
+      - 賽事資訊
+  /sport/match:
+    post:
+      description: 回傳賽事資訊
+      operationId: 單一賽事資訊
+      parameters:
+      - description: Match Id
+        in: query
+        name: MatchId
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: 賽事資料
+          schema:
+            $ref: '#/definitions/APIMatchResponse'
+            type: object
+      security:
+      - Bearer: []
+      summary: 賽事ID取得賽事資訊
+      tags:
+      - 賽事資訊
+  /sport/matches:
+    post:
+      description: 回傳單日所有賽事資訊
+      operationId: 單日賽事資訊
+      parameters:
+      - description: Match date
+        format: date
+        in: query
+        name: Date
+        required: true
+        type: string
+      - description: Sport type
+        format: integer
+        in: query
+        name: SportId
+      - description: Match status
+        format: integer
+        in: query
+        name: MatchStatusId
+      - description: booking status
+        format: string
+        in: query
+        name: BookingStatus
+      - description: event status
+        format: string
+        in: query
+        name: EventStatus
+      - description: competitor id
+        format: integer
+        in: query
+        name: CompetitorId
+      responses:
+        "200":
+          description: 賽事資料
+          schema:
+            items:
+              $ref: '#/definitions/APIMatchResponse'
+              type: object
+            type: array
+      security:
+      - Bearer: []
+      summary: 取得單日所有賽事
+      tags:
+      - 賽事資訊
+  /sport/result:
+    post:
+      description: 回傳賽事資訊
+      operationId: 賽結果查詢
+      parameters:
+      - description: Match Id
+        in: query
+        name: MatchId
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: 賽事資料
+          schema:
+            $ref: '#/definitions/APIMatchResultResponse'
+            type: object
+      security:
+      - Bearer: []
+      summary: 賽事ID取得賽事結果
+      tags:
+      - 賽事資訊
+  /sport/results:
+    post:
+      description: 回傳賽事資訊
+      operationId: 所有賽事結果
+      parameters:
+      - description: Match date
+        format: date
+        in: query
+        name: Date
+        required: true
+        type: string
+      responses:
+        "200":
+          description: 賽事資料
+          schema:
+            items:
+              $ref: '#/definitions/APIMatchResultResponse'
+              type: object
+            type: array
+      security:
+      - Bearer: []
+      summary: 日期取得賽事資訊
+      tags:
+      - 賽事資訊
+  /sport/tournaments:
+    post:
+      description: 回傳當日所有tournament資訊
+      operationId: 當日tournament資訊
+      responses:
+        "200":
+          description: 賽事資料
+          schema:
+            items:
+              items:
+                $ref: '#/definitions/APITournamentResponse'
+                type: object
+              type: array
+            type: array
+      security:
+      - Bearer: []
+      summary: 取得當日所有tournament資訊
+      tags:
+      - 賽事資訊
+  /thirdparty/player:
+    get:
+      description: 回傳目前登入使用者詳細資訊（姓名、暱稱、錢包種類、額度等）
+      operationId: player
+      responses:
+        "200":
+          description: 會員資料
+          schema:
+            $ref: '#/definitions/APIPlayerAccountResponse'
+            type: object
+      security:
+      - Bearer: []
+      summary: 取得目前登入使用者帳號資訊API
+      tags:
+      - 第三方
+  /thirdparty/signup:
+    post:
+      description: 新增使用者註冊
+      operationId: signup
+      parameters:
+      - description: 帳戶ID
+        in: formData
+        name: Username
+        required: true
+        type: string
+      - description: 密碼
+        in: formData
+        name: Password
+        required: true
+        type: string
+      - description: 使用者名稱
+        in: formData
+        name: NickName
+        required: true
+        type: string
+      - description: 錢包種類 (1:轉帳，2:外部)
+        in: formData
+        name: WalletKind
+        required: true
+        type: string
+      responses:
+        "200":
+          description: 成功訊息
+      summary: 使用者註冊API
+      tags:
+      - 第三方
+  /thirdparty/users:
+    get:
+      description: 回傳所有使用者基本資訊（姓名、暱稱）
+      operationId: Info
+      responses:
+        "200":
+          description: 會員資料
+          schema:
+            items:
+              $ref: '#/definitions/APIPlayerUserResponse'
+              type: object
+            type: array
+      security:
+      - Bearer: []
+      summary: 取得所有使用者資訊API
+      tags:
+      - 所有玩家
+  /thirdparty/wallet/deposit:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 指定玩家ID，入金對應的錢包
+      operationId: deposit
+      parameters:
+      - description: 玩家ID
+        in: formData
+        name: PlayerID
+        required: true
+        type: string
+      - description: 金額
+        in: formData
+        name: Amount
+        required: true
+        type: string
+      - description: 錢包種類 (1:轉帳，2:外部)
+        in: formData
+        name: WalletKind
+        required: true
+        type: string
+      - description: 玩家ID
+        in: formData
+        name: ApiKey
+        required: true
+        type: string
+      - description: 交易編號
+        in: formData
+        name: TransactionNumber
+        required: true
+        type: string
+      responses:
+        "200":
+          description: 成功訊息
+        "400":
+          description: 參數錯誤
+        "401":
+          description: api_key / api_secret 驗證失敗
+        "403":
+          description: checkCode驗證失敗
+        "500":
+          description: 操作失敗
+      security:
+      - ApiKey: []
+        AppSecret: []
+      summary: 使用者錢包入金
+      tags:
+      - 第三方
+  /thirdparty/wallet/history:
+    get:
+      description: 給予會員ID來查詢該會員所擁有的所有注單資料
+      operationId: history
+      parameters:
+      - description: 欲查詢之運動種類
+        in: query
+        name: UserID
+        type: integer
+      responses:
+        "200":
+          description: 會員注單資料
+          schema:
+            items:
+              $ref: '#/definitions/GetWalletHistoryParams'
+              type: object
+            type: array
+      security:
+      - Bearer: []
+      summary: 取得會員所有注單資訊
+      tags:
+      - 第三方
+  /thirdparty/wallet/withdrawal:
+    post:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: 指定玩家ID，出金對應的錢包
+      operationId: withdrawal
+      parameters:
+      - description: 玩家ID
+        in: formData
+        name: PlayerID
+        required: true
+        type: string
+      - description: 金額
+        in: formData
+        name: Amount
+        required: true
+        type: string
+      - description: 錢包種類 (1:轉帳，2:外部)
+        in: formData
+        name: WalletKind
+        required: true
+        type: string
+      - description: 玩家ID
+        in: formData
+        name: ApiKey
+        required: true
+        type: string
+      responses:
+        "200":
+          description: 成功訊息
+        "400":
+          description: 參數錯誤或餘額為負
+        "401":
+          description: api_key / api_secret 驗證失敗
+        "403":
+          description: checkCode驗證失敗
+        "500":
+          description: 操作失敗
+      security:
+      - ApiKey: []
+        AppSecret: []
+      summary: 使用者錢包出金
+      tags:
+      - 第三方
+  /trader/odds:
+    post:
+      description: |-
+        javascript：
+
+        var ws = new WebSocket('ws://34.80.228.89:18086/oddsChange')
+
+        ws.onopen = function (evt) {
+
+        console.log('Connection open ...')
+
+        }
+
+        ws.onmessage = function (evt) {
+
+        console.log('Received Message:')
+
+        console.log(evt.data)
+
+        }
+
+        ws.onclose = function (evt) {
+
+        console.log('Connection closed.')
+
+        }
+      operationId: broadcastodds
+      parameters:
+      - description: 身份驗證token
+        in: query
+        name: Authorization
+        type: string
+      - description: 訂閱要接收的賽事編號
+        in: body
+        name: SubMsg
+        schema:
+          $ref: '#/definitions/OddsUpdateSubMsg'
+          type: object
+      responses:
+        "200":
+          description: 回應成功
+          schema:
+            $ref: '#/definitions/OddsUpdateMessage'
+            type: object
+      security:
+      - bearer: []
+      summary: |-
+        即時賠率更新訊息
+        e.g.
+      tags:
+      - websocket
+schemes:
+- http
+securityDefinitions:
+  ApiKey:
+    in: header
+    name: apikey
+    type: apiKey
+  AppSecret:
+    in: header
+    name: apisecret
+    type: apiKey
+  Bearer:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
